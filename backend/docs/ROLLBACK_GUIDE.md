@@ -61,6 +61,21 @@ To query the audit log directly:
 SELECT * FROM migration_audit_log ORDER BY applied_at DESC LIMIT 20;
 ```
 
+### Renamed migrations
+
+Every migration filename must start with a unique numeric ID, and filename
+order must match numeric order (`npm run check:migrations`, enforced in CI).
+When a migration is renamed to satisfy this, add the old → new filename to
+`RENAMED_MIGRATIONS` in `utils/migrationIds.js`. `npm run migrate:sync`
+(run automatically by the `migrate*` scripts and on server startup) rewrites
+those names in `knex_migrations`, so existing databases don't re-run them.
+
+| Old filename | New filename |
+|--------------|--------------|
+| `20250324_add_chain_to_reconciliation_reports.js` | `20250324000001_add_chain_to_reconciliation_reports.js` |
+| `20250324_add_search_vector_to_transactions.js` | `20250324000002_add_search_vector_to_transactions.js` |
+| `20260220000000_create_scheduled_payments.js` | `20260220000001_create_scheduled_payments.js` |
+
 ---
 
 ## Migration Inventory
@@ -87,7 +102,7 @@ All migrations and their rollback behaviour are listed below in execution order.
 | `20260122000003_create_webhook_events.js` | `webhook_events` | Drop table |
 | `20260123000000_create_api_keys_table.js` | `api_keys` | Drop table |
 | `20260220000000_create_audit_logs_table.js` | `audit_logs` | Drop table |
-| `20260220000000_create_scheduled_payments.js` | `scheduled_payments` | Drop table |
+| `20260220000001_create_scheduled_payments.js` | `scheduled_payments` | Drop table |
 | `20260220115816_add_metadata_to_transactions.js` | `transactions` | Drop `metadata` column |
 | `20260220120000_create_disputes.js` | `disputes`, `dispute_comments` | Drop both tables |
 | `20260220125315_create_tags_table.js` | `tags` | Drop table |
