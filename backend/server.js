@@ -27,6 +27,7 @@ const [{ default: app }, { default: db, ensureConnectionWithRetry }, { default: 
 
 const PORT = process.env.PORT || 3000;
 const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+const FIVE_MINUTES = 5 * 60 * 1000;
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -203,5 +204,13 @@ const isProduction = process.env.NODE_ENV === "production";
         console.error("Export cleanup failed:", err.message);
       }
     }, TWENTY_FOUR_HOURS));
+
+    activeTimers.push(setInterval(async () => {
+      try {
+        await HousekeepingService.runBillPaymentReconciliation();
+      } catch (err) {
+        console.error("Bill payment reconciliation failed:", err.message);
+      }
+    }, FIVE_MINUTES));
   });
 })();
