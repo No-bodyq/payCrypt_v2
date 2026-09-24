@@ -17,8 +17,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "node init && tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "node init && tsup src/index.ts --format cjs,esm --dts --watch",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
     "prepublishOnly": "npm run build"

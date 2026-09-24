@@ -1,7 +1,7 @@
 {
   "name": "@tagged/sdk",
   "version": "1.0.0",
-  "description": "JavaScript/TypeScript SDK for Tagged API — seamless crypto payments integration",
+  "description": "JavaScript/TypeScript SDK for Tagged API \u2014 seamless crypto payments integration",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -17,8 +17,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "node init && tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "node init && tsup src/index.ts --format cjs,esm --dts --watch",
     "test": "tsx --test src/utils/http.test.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
