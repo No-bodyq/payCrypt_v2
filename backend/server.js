@@ -4,6 +4,7 @@ dotenv.config();
 import http from "http";
 import { validateEnv } from "./config/env.validation.js";
 import { validateStartup } from "./services/deploymentValidator.js";
+import { syncRenamedMigrations } from "./utils/migrationIds.js";
 
 let validatedEnv;
 try {
@@ -44,6 +45,8 @@ const isProduction = process.env.NODE_ENV === "production";
     }
   } else {
     try {
+      // Rewrite renamed migration records before Knex validates the directory.
+      await syncRenamedMigrations(db);
       console.log("Checking pending migrations...");
 
       const [completed, pending] = await db.migrate.list();
