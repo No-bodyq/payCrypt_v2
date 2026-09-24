@@ -1,0 +1,45 @@
+{
+  "default_branch": "master",
+  "branches": [
+    "backendXdeployement",
+    "feat/360-api-versioning",
+    "feat/361-analytics-integration",
+    "feat/362-redis-graceful-degradation",
+    "feat/364-db-pool-monitoring",
+    "fix/574-unique-migration-ids",
+    "fix/577-bill-payment-provider-outside-tx",
+    "fix/582-export-cleanup-path-safety",
+    "fix/586-stellar-monitor-overlap",
+    "llins",
+    "master",
+    "origin"
+  ],
+  "parent": {
+    "backendXdeployement": "master",
+    "feat/360-api-versioning": "master",
+    "feat/361-analytics-integration": "master",
+    "feat/362-redis-graceful-degradation": "master",
+    "feat/364-db-pool-monitoring": "master",
+    "fix/574-unique-migration-ids": "master",
+    "fix/577-bill-payment-provider-outside-tx": "master",
+    "fix/582-export-cleanup-path-safety": "master",
+    "fix/586-stellar-monitor-overlap": "master",
+    "llins": "master",
+    "master": null,
+    "origin": "master"
+  },
+  "order": [
+    "master",
+    "backendXdeployement",
+    "feat/360-api-versioning",
+    "feat/361-analytics-integration",
+    "feat/362-redis-graceful-degradation",
+    "feat/364-db-pool-monitoring",
+    "fix/574-unique-migration-ids",
+    "fix/577-bill-payment-provider-outside-tx",
+    "fix/582-export-cleanup-path-safety",
+    "fix/586-stellar-monitor-overlap",
+    "llins",
+    "origin"
+  ]
+}
