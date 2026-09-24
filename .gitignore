@@ -17,13 +17,9 @@ build
 *.local
 
 # Environment variables
-.env
-.env.local
 .env.*.local
-.env.test
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
 .idea
@@ -56,3 +52,4 @@ coverage
 # Misc
 .cache
 .parcel-cache
+config.bat

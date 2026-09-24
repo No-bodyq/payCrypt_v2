@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "workers.js",
   "scripts": {
-    "start": "node workers.js",
+    "start": "node init && node workers.js",
     "test": "jest --testPathPattern=tests/ --runInBand --forceExit"
   },
   "dependencies": {
