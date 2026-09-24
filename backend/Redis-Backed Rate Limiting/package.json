@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "NestJS API with Redis-backed rate limiting",
   "scripts": {
-    "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start": "node init && nest start",
+    "start:dev": "node init && nest start --watch",
     "test": "jest",
     "test:watch": "jest --watch"
   },
